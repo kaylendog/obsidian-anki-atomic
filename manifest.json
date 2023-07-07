@@ -1,11 +1,11 @@
 {
-	"id": "obsidian-sample-plugin",
-	"name": "Sample Plugin",
+	"id": "obsidian-anki-atomic",
+	"name": "Anki Atomic",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "This is a sample plugin for Obsidian. This plugin demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
-	"isDesktopOnly": false
+	"description": "An Anki integration plugin for atomic notes in Obsidian.",
+	"author": "Kaylen Dart",
+	"authorUrl": "https://github.com/kaylendog/obsidian-anki-atomic",
+	"fundingUrl": "https://github.com/kaylendog/obsidian-anki-atomic",
+	"isDesktopOnly": true
 }
