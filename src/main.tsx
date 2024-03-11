@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { PluginContext } from "./context/plugin";
 import { AnkiAtomicSettingTab } from "./settings";
 import { PluginStatusBarItem } from "./status-bar";
+import { AnkiConnectProvider } from "./connect";
 
 interface ObsidianAnkiAtomicSettings {
 	mySetting: string;
@@ -33,14 +34,38 @@ export default class ObsidianAnkiAtomic extends Plugin {
 		await this.saveData(this.settings);
 	}
 
+	private memoizedRoots = new Map<HTMLElement, ReactDOM.Root>();
+
+	/**
+	 * Retrieve a component root from a DOM container.
+	 * @param container
+	 * @returns
+	 */
+	fetchComponentRoot(container: HTMLElement) {
+		const root = this.memoizedRoots.get(container);
+		if (root !== undefined) {
+			return { root, exists: true };
+		}
+		return { root: ReactDOM.createRoot(container), exists: false };
+	}
+
 	/**
 	 * Mount a component to a DOM container.
 	 * @param Component
 	 * @param container
 	 * @returns
 	 */
-	mountComponent = (children: React.ReactNode, container: HTMLElement) => {
-		const root = ReactDOM.createRoot(container);
-		root.render(<PluginContext.Provider value={this}>{children}</PluginContext.Provider>);
-	};
+	mountComponent(children: React.ReactNode, container: HTMLElement) {
+		const { root, exists } = this.fetchComponentRoot(container);
+		// unmount any existing component
+		if (exists) {
+			root.unmount();
+		}
+		// render the new component
+		root.render(
+			<AnkiConnectProvider>
+				<PluginContext.Provider value={this}>{children}</PluginContext.Provider>
+			</AnkiConnectProvider>
+		);
+	}
 }

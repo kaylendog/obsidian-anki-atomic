@@ -8,6 +8,9 @@ dependencies:
   '@autoanki/anki-connect':
     specifier: ^0.1.4
     version: 0.1.4
+  '@tanstack/react-query':
+    specifier: ^5.26.3
+    version: 5.26.3(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -864,6 +867,19 @@ packages:
   /@rushstack/eslint-patch@1.7.2:
     resolution: {integrity: sha512-RbhOOTCNoCrbfkRyoXODZp75MlpiHMgbE5MEBZAnnnLyQNgrigEj4p0lzsMDyc1zVsJDLrivB58tgg3emX0eEA==}
     dev: true
+
+  /@tanstack/query-core@5.26.3:
+    resolution: {integrity: sha512-kKv7VHIleC7cwpMS3M63mWUFFbdiRo7JZMVUyZ4z/79RZoAi7/vGTVkCrnNqyKl+zwBRkumYL+eiYtyShGZd0A==}
+    dev: false
+
+  /@tanstack/react-query@5.26.3(react@18.2.0):
+    resolution: {integrity: sha512-fP/kEu8aVLb6ln0ySazaeyivVkSQ9EnFfA5kQ7yIQNklx5JCW7otHVY6GVjZtd/3wK6QU99yvdSH0rN0LV2vmA==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      '@tanstack/query-core': 5.26.3
+      react: 18.2.0
+    dev: false
 
   /@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.2.5):
     resolution: {integrity: sha512-r3n0onD3BTOVUNPhR4lhVK4/pABGpbA7bW3eumZnYdKaHkf1qEC+Mag6DPbGNuuh0eG8AaYj+YqmVHSiGslaTQ==}
