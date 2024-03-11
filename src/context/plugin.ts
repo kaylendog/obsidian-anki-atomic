@@ -1,5 +1,5 @@
-import { createContext } from "preact";
-import { useContext } from "preact/hooks";
+import { createContext, useContext } from "react";
+
 import ObsidianAnkiAtomic from "src/main";
 
 export const PluginContext = createContext<ObsidianAnkiAtomic | null>(null);

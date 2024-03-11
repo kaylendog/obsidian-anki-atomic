@@ -4,7 +4,7 @@
 	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
 	"main": "dist/obsidian-anki-atomic.bundle.js",
 	"scripts": {
-		"dev": "vite build --watch & tcm -w src",
+		"dev": "vite build --mode development --watch & tcm -w src",
 		"build": "tsc && vite build",
 		"version": "node version-bump.mjs && git add manifest.json versions.json"
 	},
@@ -12,10 +12,12 @@
 	"author": "",
 	"license": "MIT",
 	"devDependencies": {
-		"@preact/preset-vite": "^2.8.1",
 		"@types/node": "^20.11.25",
+		"@types/react": "^18.2.64",
+		"@types/react-dom": "^18.2.21",
 		"@typescript-eslint/eslint-plugin": "^6",
 		"@typescript-eslint/parser": "^6",
+		"@vitejs/plugin-react": "^4.2.1",
 		"babel-plugin-styled-components": "^2.1.4",
 		"builtin-modules": "3.3.0",
 		"eslint-config-infernal": "^4.0.0",
@@ -29,6 +31,7 @@
 	},
 	"dependencies": {
 		"@autoanki/anki-connect": "^0.1.4",
-		"preact": "^10.19.6"
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
 	}
 }

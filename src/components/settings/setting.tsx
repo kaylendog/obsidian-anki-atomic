@@ -1,11 +1,10 @@
 import { Setting as ObsidianSetting } from "obsidian";
-import * as Preact from "preact";
-import { useEffect } from "preact/hooks";
+import { useEffect } from "react";
 
 import { usePlugin } from "../../context/plugin";
 import { useSettings } from "./context";
 
-export const Setting: Preact.FunctionComponent<{
+export const Setting: React.FC<{
 	name: string;
 	description: string;
 	placeholder?: string;

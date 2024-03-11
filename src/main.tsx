@@ -1,5 +1,5 @@
 import { Plugin } from "obsidian";
-import * as Preact from "preact";
+import ReactDOM from "react-dom/client";
 
 import { PluginContext } from "./context/plugin";
 import { AnkiAtomicSettingTab } from "./settings";
@@ -20,7 +20,7 @@ export default class ObsidianAnkiAtomic extends Plugin {
 		// setup settings
 		this.addSettingTab(new AnkiAtomicSettingTab(this));
 		// mount status bar
-		this.mountComponent(PluginStatusBarItem, this.addStatusBarItem());
+		this.mountComponent(<PluginStatusBarItem />, this.addStatusBarItem());
 	}
 
 	onunload() {}
@@ -39,12 +39,8 @@ export default class ObsidianAnkiAtomic extends Plugin {
 	 * @param container
 	 * @returns
 	 */
-	mountComponent = (Component: Preact.FunctionComponent, container: HTMLElement) => {
-		Preact.render(
-			<PluginContext.Provider value={this}>
-				<Component />
-			</PluginContext.Provider>,
-			container
-		);
+	mountComponent = (children: React.ReactNode, container: HTMLElement) => {
+		const root = ReactDOM.createRoot(container);
+		root.render(<PluginContext.Provider value={this}>{children}</PluginContext.Provider>);
 	};
 }
