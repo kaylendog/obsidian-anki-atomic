@@ -1,10 +1,71 @@
-import { useAnkiMutation, useAnkiQuery } from "./query";
+import { Query, useAnkiMutation, useAnkiQuery } from "./query";
 
-export interface GuiQueries {}
+export interface GuiQueries {
+	guiBrowse: Query<
+		{
+			query: string;
+			reorderCards: {
+				order: "ascending" | "descending";
+				columnId: string;
+			};
+		},
+		number[]
+	>;
+
+	guiSelectedNotes: Query<undefined, number[]>;
+	guiCurrentCard: Query<
+		undefined,
+		{
+			answer: string;
+			question: string;
+			deckName: string;
+			modelName: string;
+			fieldOrder: number;
+			fields: Record<string, { value: string; order: number }>;
+			template: string;
+			cardId: number;
+			buttons: number[];
+			nextReviews: string[];
+		}
+	>;
+}
 
 export type GuiQueryKey = keyof GuiQueries;
 
-export interface GuiMutations {}
+export interface GuiMutations {
+	guiAddCards: Query<
+		{
+			deckName: string;
+			modelName: string;
+			fields: Record<string, string>;
+			tags: string[];
+			picture: {
+				url: string;
+				filename: string;
+				fields: string[];
+			}[];
+		},
+		number
+	>;
+	guiSelectNote: Query<{ note: number }, boolean>;
+	guiEditNote: Query<
+		{
+			note: number;
+		},
+		null
+	>;
+	guiStartCardTimer: Query<undefined, true>;
+	guiShowQuestion: Query<undefined, boolean>;
+	guiShowAnswer: Query<undefined, boolean>;
+	guiAnswerCard: Query<{ ease: number }, boolean>;
+	guiUndo: Query<undefined, boolean>;
+	guiDeckOverview: Query<{ name: string }, boolean>;
+	guiDeckBrowser: Query<undefined, true>;
+	guiDeckReview: Query<{ name: string }, boolean>;
+	guiImportFile: Query<{ path: string }, null>;
+	guiExitAnki: Query<undefined, null>;
+	guiCheckDatabase: Query<undefined, true>;
+}
 
 export type GuiMutationKey = keyof GuiMutations;
 
