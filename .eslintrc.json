@@ -4,7 +4,7 @@
 	"extends": "eslint-config-infernal",
 	"parserOptions": {
 		"sourceType": "module",
-		"project": ["./tsconfig.json", "./tsconfig.node.json"]
+		"project": ["./packages/*/tsconfig.json"]
 	},
 	"ignorePatterns": ["main.js"]
 }

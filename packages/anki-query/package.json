@@ -1,0 +1,20 @@
+{
+	"name": "anki-query",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"scripts": {
+		"dev": "tsc -w",
+		"build": "tsc"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.72",
+		"typescript": "^5.4.3"
+	},
+	"dependencies": {
+		"@tanstack/react-query": "^5.28.9"
+	}
+}

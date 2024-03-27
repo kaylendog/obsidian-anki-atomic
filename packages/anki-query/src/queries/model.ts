@@ -1,4 +1,4 @@
-import { Query, useAnkiMutation, useAnkiQuery } from "./query";
+import { Query, useAnkiMutation, useAnkiQuery } from "../query";
 
 export interface Model {
 	id: number;

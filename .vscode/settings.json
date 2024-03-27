@@ -1,0 +1,27 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"editor.formatOnSave": true,
+	"editor.detectIndentation": false,
+	// set LF
+	"files.eol": "\n",
+	"files.insertFinalNewline": true,
+	// prettier
+	"prettier.tabWidth": 4,
+	"prettier.useTabs": true,
+	// language overrides
+	"[rust]": {
+		"editor.defaultFormatter": "rust-lang.rust-analyzer"
+	},
+	"[shellscript]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[prisma]": {
+		"editor.defaultFormatter": "Prisma.prisma"
+	},
+	"[toml]": {
+		"editor.defaultFormatter": "tamasfe.even-better-toml"
+	},
+	"rust-analyzer.linkedProjects": ["./apps/desktop/src-tauri/Cargo.toml"]
+}

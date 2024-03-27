@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { useAtom } from "jotai";
+import { useContext } from "react";
 
-import { ankiUrlAtom } from ".";
+import { AnkiQueryContext } from "./context";
 
 /**
  * General type wrapper around AnkiConnect queries.
@@ -26,11 +26,11 @@ export const useAnkiQuery = <K, Req, Res extends Response<unknown>, Result>(
 	key: K,
 	params: Req
 ) => {
-	const [url] = useAtom(ankiUrlAtom);
+	const { endpoint } = useContext(AnkiQueryContext);
 	return useQuery({
 		queryKey: [key],
 		queryFn: () =>
-			fetch(url, {
+			fetch(endpoint, {
 				method: "POST",
 				body: JSON.stringify({
 					action: key,
@@ -57,11 +57,12 @@ export const useAnkiQuery = <K, Req, Res extends Response<unknown>, Result>(
 export const useAnkiMutation = <K, Req, Res extends Response<unknown>, Result>(
 	key: K,
 	params: Req
-) =>
-	useMutation({
+) => {
+	const { endpoint } = useContext(AnkiQueryContext);
+	return useMutation({
 		mutationKey: [key],
 		mutationFn: () =>
-			fetch("ankiUrl", {
+			fetch(endpoint, {
 				method: "POST",
 				body: JSON.stringify({
 					action: key,
@@ -77,3 +78,4 @@ export const useAnkiMutation = <K, Req, Res extends Response<unknown>, Result>(
 					return res.result as Result;
 				}),
 	});
+};
