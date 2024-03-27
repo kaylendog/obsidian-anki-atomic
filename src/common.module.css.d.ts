@@ -1,6 +1,5 @@
 declare const styles: {
-  readonly "HStack": string;
-  readonly "VStack": string;
+	readonly HStack: string;
+	readonly VStack: string;
 };
 export = styles;
-

@@ -1,10 +1,10 @@
 import { Plugin } from "obsidian";
 import ReactDOM from "react-dom/client";
 
-import { PluginContext } from "./context/plugin";
-import { AnkiAtomicSettingTab } from "./settings";
-import { PluginStatusBarItem } from "./status-bar";
+import { AnkiAtomicSettingTab } from "./components/settings";
+import { PluginStatusBarItem } from "./components/status-bar";
 import { AnkiConnectProvider } from "./connect";
+import { PluginContext } from "./context/plugin";
 
 interface ObsidianAnkiAtomicSettings {
 	mySetting: string;

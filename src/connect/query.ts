@@ -1,4 +1,7 @@
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useAtom } from "jotai";
+
+import { ankiUrlAtom } from ".";
 
 /**
  * General type wrapper around AnkiConnect queries.
@@ -19,11 +22,15 @@ interface Response<T, Err = string | null> {
  * @param params The parameters for the query.
  * @returns
  */
-export const useAnkiQuery = <K, Req, Res extends Response<unknown>, Result>(key: K, params: Req) =>
-	useQuery({
+export const useAnkiQuery = <K, Req, Res extends Response<unknown>, Result>(
+	key: K,
+	params: Req
+) => {
+	const [url] = useAtom(ankiUrlAtom);
+	return useQuery({
 		queryKey: [key],
 		queryFn: () =>
-			fetch("ankiUrl", {
+			fetch(url, {
 				method: "POST",
 				body: JSON.stringify({
 					action: key,
@@ -39,6 +46,7 @@ export const useAnkiQuery = <K, Req, Res extends Response<unknown>, Result>(key:
 					return res.result as Result;
 				}),
 	});
+};
 
 /**
  * Wrapper around useMutation that performs mutations on AnkiConnect.

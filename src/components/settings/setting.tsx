@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { Setting as ObsidianSetting } from "obsidian";
+import { useEffect } from "react";
 
 import { useSettings } from "./context";
 

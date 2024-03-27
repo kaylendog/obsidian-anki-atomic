@@ -1,5 +1,4 @@
 import { createContext, useContext } from "react";
-
 import ObsidianAnkiAtomic from "src/main";
 
 export const PluginContext = createContext<ObsidianAnkiAtomic | null>(null);

@@ -2,10 +2,10 @@
 	"name": "obsidian-anki-atomic",
 	"version": "1.0.0",
 	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
-	"main": "dist/obsidian-anki-atomic.bundle.js",
+	"main": "dist/main.js",
 	"scripts": {
-		"dev": "vite build --mode development --watch & tcm -w src",
-		"build": "tsc && vite build",
+		"dev": "NODE_ENV=development vite build --mode development --watch & tcm -w src",
+		"build": "NODE_ENV=production tsc && vite build --mode production",
 		"version": "node version-bump.mjs && git add manifest.json versions.json"
 	},
 	"keywords": [],
@@ -32,6 +32,7 @@
 	"dependencies": {
 		"@autoanki/anki-connect": "^0.1.4",
 		"@tanstack/react-query": "^5.26.3",
+		"jotai": "^2.7.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	}
