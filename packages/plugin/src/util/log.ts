@@ -4,8 +4,8 @@
  * @param method
  */
 const useLog =
-	(method: (...message: string[]) => void) =>
-	(...message: string[]) => {
+	(method: (...message: unknown[]) => void) =>
+	(...message: unknown[]) => {
 		method("%c[anki-atomic]", "color: #ff00ff", ...message);
 	};
 

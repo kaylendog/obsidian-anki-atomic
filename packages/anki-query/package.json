@@ -2,7 +2,7 @@
 	"name": "anki-query",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "src/index.tsx",
 	"keywords": [],
 	"author": "",
 	"license": "ISC",

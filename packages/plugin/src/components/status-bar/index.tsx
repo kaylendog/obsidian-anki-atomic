@@ -1,4 +1,5 @@
-import { useDeckQuery } from "../connect";
+import { useDeckQuery } from "anki-query";
+
 import styles from "./styles.module.css";
 
 export const PluginStatusBarItem: React.FC = () => {
